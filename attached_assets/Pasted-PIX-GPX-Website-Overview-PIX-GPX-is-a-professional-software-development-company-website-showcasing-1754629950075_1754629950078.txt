@@ -1,0 +1,58 @@
+PIX GPX Website
+Overview
+PIX GPX is a professional software development company website showcasing comprehensive technology services including web development, mobile apps, custom software, graphic design, domain & hosting, and consulting services across multiple industries.
+
+User Preferences
+Preferred communication style: Simple, everyday language.
+
+System Architecture
+Tech Stack
+Frontend: HTML5, TailwindCSS, JavaScript
+Backend: Node.js with Express.js
+Styling: TailwindCSS with custom CSS
+Icons: Font Awesome 6
+Deployment: Single-page application with Express server
+Project Structure
+index.html - Main website file with all sections
+server.js - Express.js server with API endpoints
+package.json - Node.js dependencies and scripts
+Key Features
+Website Sections
+Hero Section: Professional landing with call-to-action
+Services: 6 core services including graphic design
+Industries: Manufacturing, Healthcare, Retail, Education, Real Estate, Freelance
+Portfolio: Project showcases with technology stacks
+About: Company information and statistics
+Contact: Professional contact form with service selection
+Services Offered
+Web Development (e-commerce, business websites, web apps)
+Mobile App Development (iOS, Android, cross-platform)
+Custom Software Solutions (ERP, CRM, automation)
+Graphic Design Services (logos, branding, UI/UX)
+Domain & Hosting (registration, cloud hosting, SSL)
+Consulting & Support (technology consulting, 24/7 support)
+Technical Features
+Responsive design for all devices
+Smooth scrolling navigation
+Mobile-friendly hamburger menu
+Working contact form with server-side processing
+Professional animations and hover effects
+SEO-optimized structure
+API Endpoints
+POST /api/contact - Contact form submission
+GET /health - Health check endpoint
+GET / - Main website
+Recent Changes
+✓ January 2025: Complete website recreation from scratch ✓ Clean Architecture: Simplified single-page application design ✓ Professional Design: Modern gradient design with animations ✓ All Services: Complete service showcase including graphic design ✓ Working Backend: Express.js server with contact form processing ✓ Mobile Responsive: Fully responsive design with mobile menu
+
+Deployment Strategy
+Development:
+
+Run node server.js to start the server
+Server runs on port 5000 with static file serving
+Contact form posts to /api/contact endpoint
+Production Ready:
+
+Single HTML file with embedded CSS and JavaScript
+Express.js backend for form processing
+Static file serving for optimal performance

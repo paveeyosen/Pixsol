@@ -1,0 +1,747 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIX GPX - Professional Software Development Company</title>
+    <meta name="description" content="PIX GPX offers comprehensive technology services including web development, mobile apps, custom software, graphic design, domain & hosting, and consulting services.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s infinite',
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes bounceGentle {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-3px); }
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #475569 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body class="font-inter bg-slate-50 text-slate-800">
+    <!-- Navigation -->
+    <!-- @COMPONENT: Navigation [responsive navbar with mobile menu] -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">PG</span>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">PIX GPX</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-slate-600 hover:text-blue-600 transition-colors" data-event="click:scrollToSection">Home</a>
+                    <a href="#services" class="text-slate-600 hover:text-blue-600 transition-colors" data-event="click:scrollToSection">Services</a>
+                    <a href="#industries" class="text-slate-600 hover:text-blue-600 transition-colors" data-event="click:scrollToSection">Industries</a>
+                    <a href="#portfolio" class="text-slate-600 hover:text-blue-600 transition-colors" data-event="click:scrollToSection">Portfolio</a>
+                    <a href="#about" class="text-slate-600 hover:text-blue-600 transition-colors" data-event="click:scrollToSection">About</a>
+                    <a href="#contact" class="bg-gradient-to-r from-blue-600 to-violet-600 text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all" data-event="click:scrollToSection">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-slate-600 hover:text-blue-600" id="mobile-menu-btn" data-event="click:toggleMobileMenu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed top-16 right-0 w-64 h-screen bg-white shadow-xl md:hidden" id="mobile-menu">
+            <div class="p-6 space-y-4">
+                <a href="#home" class="block text-slate-600 hover:text-blue-600 transition-colors py-2" data-event="click:scrollToSection">Home</a>
+                <a href="#services" class="block text-slate-600 hover:text-blue-600 transition-colors py-2" data-event="click:scrollToSection">Services</a>
+                <a href="#industries" class="block text-slate-600 hover:text-blue-600 transition-colors py-2" data-event="click:scrollToSection">Industries</a>
+                <a href="#portfolio" class="block text-slate-600 hover:text-blue-600 transition-colors py-2" data-event="click:scrollToSection">Portfolio</a>
+                <a href="#about" class="block text-slate-600 hover:text-blue-600 transition-colors py-2" data-event="click:scrollToSection">About</a>
+                <a href="#contact" class="block bg-gradient-to-r from-blue-600 to-violet-600 text-white px-6 py-3 rounded-lg text-center mt-4" data-event="click:scrollToSection">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- Hero Section -->
+    <!-- @COMPONENT: HeroSection [main landing area with CTA] -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white animate-fade-in">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Professional <span class="gradient-text bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Software Development</span> Solutions
+                    </h1>
+                    <p class="text-xl text-slate-300 mb-8 leading-relaxed">
+                        We deliver comprehensive technology services including web development, mobile apps, custom software, graphic design, and consulting across multiple industries.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-gradient-to-r from-blue-600 to-violet-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all text-center" data-event="click:scrollToContact">
+                            Get Started Today
+                        </a>
+                        <a href="#portfolio" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-slate-800 transition-all text-center" data-event="click:scrollToPortfolio">
+                            View Our Work
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:block animate-slide-up">
+                    <!-- Modern tech illustration representing software development -->
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Modern software development workspace with multiple monitors" class="rounded-xl shadow-2xl" data-mock-image="true" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- Services Section -->
+    <!-- @COMPONENT: ServicesSection [6 core services showcase] -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 gradient-text">Our Services</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Comprehensive technology solutions designed to drive your business forward with cutting-edge expertise and professional excellence.
+                </p>
+            </div>
+            
+            <!-- @MAP: services.map(service => ( -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="service.title">Web Development</h3>
+                    <p class="text-slate-600 mb-6" data-bind="service.description">E-commerce platforms, business websites, and modern web applications built with the latest technologies.</p>
+                    <ul class="text-sm text-slate-500 space-y-2">
+                        <li data-mock="true">• Responsive Design</li>
+                        <li data-mock="true">• E-commerce Solutions</li>
+                        <li data-mock="true">• Progressive Web Apps</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-violet-600 to-violet-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="service.title">Mobile App Development</h3>
+                    <p class="text-slate-600 mb-6" data-bind="service.description">Native iOS and Android apps, plus cross-platform solutions for maximum reach and performance.</p>
+                    <ul class="text-sm text-slate-500 space-y-2">
+                        <li data-mock="true">• iOS Development</li>
+                        <li data-mock="true">• Android Development</li>
+                        <li data-mock="true">• Cross-Platform Solutions</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-600 to-cyan-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="service.title">Custom Software Solutions</h3>
+                    <p class="text-slate-600 mb-6" data-bind="service.description">Tailored ERP, CRM, and automation systems designed specifically for your business needs.</p>
+                    <ul class="text-sm text-slate-500 space-y-2">
+                        <li data-mock="true">• Enterprise Resource Planning</li>
+                        <li data-mock="true">• Customer Relationship Management</li>
+                        <li data-mock="true">• Process Automation</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="service.title">Graphic Design Services</h3>
+                    <p class="text-slate-600 mb-6" data-bind="service.description">Professional logos, branding, and UI/UX design that creates lasting impressions.</p>
+                    <ul class="text-sm text-slate-500 space-y-2">
+                        <li data-mock="true">• Logo & Branding</li>
+                        <li data-mock="true">• UI/UX Design</li>
+                        <li data-mock="true">• Marketing Materials</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-server text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="service.title">Domain & Hosting</h3>
+                    <p class="text-slate-600 mb-6" data-bind="service.description">Domain registration, reliable cloud hosting, and SSL certificates for secure online presence.</p>
+                    <ul class="text-sm text-slate-500 space-y-2">
+                        <li data-mock="true">• Domain Registration</li>
+                        <li data-mock="true">• Cloud Hosting</li>
+                        <li data-mock="true">• SSL Certificates</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="service.title">Consulting & Support</h3>
+                    <p class="text-slate-600 mb-6" data-bind="service.description">Expert technology consulting and 24/7 support to keep your systems running smoothly.</p>
+                    <ul class="text-sm text-slate-500 space-y-2">
+                        <li data-mock="true">• Technology Consulting</li>
+                        <li data-mock="true">• 24/7 Support</li>
+                        <li data-mock="true">• System Maintenance</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ServicesSection -->
+
+    <!-- Industries Section -->
+    <!-- @COMPONENT: IndustriesSection [6 target industries] -->
+    <section id="industries" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 gradient-text">Industries We Serve</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Our expertise spans across diverse industries, delivering tailored solutions that meet specific sector requirements.
+                </p>
+            </div>
+            
+            <!-- @MAP: industries.map(industry => ( -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-industry text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="industry.name">Manufacturing</h3>
+                    <p class="text-slate-600" data-bind="industry.description">Streamline operations with custom ERP systems, inventory management, and process automation solutions.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-heartbeat text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="industry.name">Healthcare</h3>
+                    <p class="text-slate-600" data-bind="industry.description">HIPAA-compliant patient management systems, telemedicine platforms, and healthcare analytics solutions.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-violet-600 to-violet-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shopping-cart text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="industry.name">Retail</h3>
+                    <p class="text-slate-600" data-bind="industry.description">E-commerce platforms, POS systems, inventory management, and customer engagement solutions.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="industry.name">Education</h3>
+                    <p class="text-slate-600" data-bind="industry.description">Learning management systems, student portals, online course platforms, and educational mobile apps.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-600 to-cyan-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-home text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="industry.name">Real Estate</h3>
+                    <p class="text-slate-600" data-bind="industry.description">Property management systems, listing platforms, virtual tour solutions, and CRM for real estate.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-user text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-bind="industry.name">Freelance</h3>
+                    <p class="text-slate-600" data-bind="industry.description">Portfolio websites, client management tools, invoicing systems, and personal branding solutions.</p>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: IndustriesSection -->
+
+    <!-- Portfolio Section -->
+    <!-- @COMPONENT: PortfolioSection [project showcases with tech stacks] -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 gradient-text">Our Portfolio</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Explore our recent projects showcasing innovative solutions across various industries and technologies.
+                </p>
+            </div>
+            
+            <!-- @MAP: portfolioItems.map(project => ( -->
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-slate-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all group">
+                    <!-- E-commerce platform preview -->
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500" alt="Modern e-commerce website interface on multiple devices" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" data-mock-image="true" />
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4" data-bind="project.title">E-Commerce Platform</h3>
+                        <p class="text-slate-600 mb-6" data-bind="project.description">A comprehensive online marketplace with advanced product management, secure payment processing, and real-time analytics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-mock="true">React</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm" data-mock="true">Node.js</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm" data-mock="true">MongoDB</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm" data-mock="true">Stripe</span>
+                        </div>
+                        <div class="flex items-center text-blue-600 hover:text-blue-700 font-semibold">
+                            <span>View Case Study</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all group">
+                    <!-- Healthcare management system -->
+                    <img src="https://cse.lmu.edu/media/lmucse/departments/healthcaresystemsengineering/HEALTHCARE.jpg" alt="Healthcare management dashboard with patient data and analytics" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" data-mock-image="true" />
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4" data-bind="project.title">Healthcare Management System</h3>
+                        <p class="text-slate-600 mb-6" data-bind="project.description">HIPAA-compliant patient management platform with appointment scheduling, medical records, and telemedicine capabilities.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-mock="true">Vue.js</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm" data-mock="true">Laravel</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-mock="true">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm" data-mock="true">AWS</span>
+                        </div>
+                        <div class="flex items-center text-blue-600 hover:text-blue-700 font-semibold">
+                            <span>View Case Study</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all group">
+                    <!-- Mobile fitness app -->
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500" alt="Fitness mobile app interface showing workout tracking and progress" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" data-mock-image="true" />
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4" data-bind="project.title">Fitness Tracking Mobile App</h3>
+                        <p class="text-slate-600 mb-6" data-bind="project.description">Cross-platform mobile app for workout tracking, nutrition monitoring, and social fitness challenges with real-time synchronization.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm" data-mock="true">React Native</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm" data-mock="true">Express.js</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm" data-mock="true">Firebase</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm" data-mock="true">GraphQL</span>
+                        </div>
+                        <div class="flex items-center text-blue-600 hover:text-blue-700 font-semibold">
+                            <span>View Case Study</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all group">
+                    <!-- Manufacturing ERP system -->
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500" alt="Manufacturing dashboard showing production metrics and inventory data" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" data-mock-image="true" />
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4" data-bind="project.title">Manufacturing ERP System</h3>
+                        <p class="text-slate-600 mb-6" data-bind="project.description">Comprehensive enterprise resource planning system for manufacturing with inventory management, production scheduling, and quality control.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm" data-mock="true">Angular</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm" data-mock="true">Django</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm" data-mock="true">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm" data-mock="true">Redis</span>
+                        </div>
+                        <div class="flex items-center text-blue-600 hover:text-blue-700 font-semibold">
+                            <span>View Case Study</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: PortfolioSection -->
+
+    <!-- About Section -->
+    <!-- @COMPONENT: AboutSection [company info and statistics] -->
+    <section id="about" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 gradient-text">About PIX GPX</h2>
+                    <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+                        Founded with a vision to bridge the gap between innovative technology and business success, PIX GPX has emerged as a trusted partner for companies seeking comprehensive digital solutions.
+                    </p>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        Our team of experienced developers, designers, and consultants work collaboratively to deliver solutions that not only meet current needs but also scale with future growth. We pride ourselves on understanding each client's unique challenges and crafting tailored approaches that drive measurable results.
+                    </p>
+                    
+                    <!-- Company Statistics -->
+                    <!-- @STATE: statsAnimated:boolean = false -->
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold gradient-text mb-2" data-bind="stats.projectsCompleted">150+</div>
+                            <div class="text-slate-600">Projects Completed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold gradient-text mb-2" data-bind="stats.happyClients">95%</div>
+                            <div class="text-slate-600">Client Satisfaction</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold gradient-text mb-2" data-bind="stats.yearsExperience">8+</div>
+                            <div class="text-slate-600">Years Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold gradient-text mb-2" data-bind="stats.teamSize">24/7</div>
+                            <div class="text-slate-600">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Professional team workspace image -->
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Professional development team collaborating on software projects" class="rounded-xl shadow-2xl" data-mock-image="true" />
+                    
+                    <!-- Floating stats card -->
+                    <div class="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-xl border border-slate-200">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-award text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-slate-800">Award Winner</div>
+                                <div class="text-slate-600">Best Software Solutions 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- Contact Section -->
+    <!-- @COMPONENT: ContactSection [contact form with service selection] -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 gradient-text">Get In Touch</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Ready to transform your ideas into reality? Let's discuss how we can help you achieve your technology goals.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Let's Start a Conversation</h3>
+                        <p class="text-lg text-slate-600 mb-8">
+                            Whether you need a new website, mobile app, or custom software solution, our team is ready to bring your vision to life with professional expertise and cutting-edge technology.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Email Us</div>
+                                <div class="text-slate-600">joesph@pix-sol.com</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Call Us</div>
+                                <div class="text-slate-600">+91 90031 79421</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-violet-600 to-violet-700 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Business Hours</div>
+                                <div class="text-slate-600">Mon - Fri: 9AM - 6PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-slate-50 rounded-xl p-8">
+                    <form class="space-y-6" data-event="submit:handleContactForm">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" data-mock="true" />
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" data-mock="true" />
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" data-mock="true" />
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-semibold text-slate-700 mb-2">Service Interested In</label>
+                            <select id="service" name="service" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" data-mock="true">
+                                <option value="">Select a service...</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="mobile-app">Mobile App Development</option>
+                                <option value="custom-software">Custom Software Solutions</option>
+                                <option value="graphic-design">Graphic Design Services</option>
+                                <option value="domain-hosting">Domain & Hosting</option>
+                                <option value="consulting">Consulting & Support</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-slate-700 mb-2">Project Details</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" placeholder="Tell us about your project requirements..." data-mock="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-violet-600 text-white py-4 px-8 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all" data-event="click:submitForm" data-implementation="Should validate form and submit to /api/contact endpoint">
+                            <span class="flex items-center justify-center space-x-2">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- Footer -->
+    <!-- @COMPONENT: Footer [company info and links] -->
+    <footer class="bg-slate-800 text-white py-16">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">PG</span>
+                        </div>
+                        <span class="text-2xl font-bold">PIX GPX</span>
+                    </div>
+                    <p class="text-slate-300 mb-6 leading-relaxed max-w-md">
+                        Professional software development company delivering comprehensive technology solutions that drive business success across multiple industries.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-slate-700 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors" data-event="click:openSocialLink">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-700 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors" data-event="click:openSocialLink">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-700 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors" data-event="click:openSocialLink">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Services</h4>
+                    <ul class="space-y-3 text-slate-300">
+                        <li><a href="#services" class="hover:text-white transition-colors" data-event="click:scrollToSection">Web Development</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors" data-event="click:scrollToSection">Mobile Apps</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors" data-event="click:scrollToSection">Custom Software</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors" data-event="click:scrollToSection">Graphic Design</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors" data-event="click:scrollToSection">Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Company</h4>
+                    <ul class="space-y-3 text-slate-300">
+                        <li><a href="#about" class="hover:text-white transition-colors" data-event="click:scrollToSection">About Us</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition-colors" data-event="click:scrollToSection">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors" data-event="click:scrollToSection">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" data-event="click:openPage">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" data-event="click:openPage">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400">
+                <p>&copy; 2025 PIX GPX. All rights reserved. Professional software development solutions.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- JavaScript -->
+    <script>
+        (function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                
+                // Toggle icon
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.className = 'fas fa-times text-xl';
+                } else {
+                    icon.className = 'fas fa-bars text-xl';
+                }
+            });
+            
+            // Close mobile menu when clicking links
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars text-xl';
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars text-xl';
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // Account for fixed header
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Contact form handling
+            const contactForm = document.querySelector('form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // TODO: Implement form validation
+                    // TODO: Submit to /api/contact endpoint
+                    // TODO: Show success/error messages
+                    
+                    // Mock success message for demonstration
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = '<span class="flex items-center justify-center space-x-2"><span>Sending...</span><i class="fas fa-spinner fa-spin"></i></span>';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<span class="flex items-center justify-center space-x-2"><span>Message Sent!</span><i class="fas fa-check"></i></span>';
+                        
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            this.reset();
+                        }, 2000);
+                    }, 1500);
+                });
+            }
+            
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for scroll animations
+            const animatedElements = document.querySelectorAll('.service-card, .bg-white.rounded-xl');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+            
+        })();
+    </script>
+</body>
+</html>
