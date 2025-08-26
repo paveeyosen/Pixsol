@@ -70,8 +70,15 @@ app.use((req, res, next) => {
   // });
 
   
-  const port = 5000;
-server.listen(port, '127.0.0.1', () => {
-  console.log(`Serving on port ${port}`);
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Hello from Render!" });
+});
+
+
+const port = process.env.PORT || 10000;
+const host = process.env.IP_ADDR || '0.0.0.0'; // Default to 0.0.0.0 for cloud deployments
+
+server.listen(port, host, () => {
+  console.log(`Server running on http://${host}:${port}`);
 });
 })();
