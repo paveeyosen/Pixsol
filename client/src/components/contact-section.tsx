@@ -92,22 +92,22 @@ export default function ContactSection() {
     {
       icon: "fas fa-phone",
       title: "Call Us",
-      details: "+91 90031 79421",
+      details: "+1 (900) 317-9421",
       gradient: "from-emerald-600 to-emerald-700"
+    },
+    {
+      icon: "fab fa-whatsapp",
+      title: "WhatsApp",
+      details: "+1 (900) 317-9421",
+      gradient: "from-green-600 to-green-700",
+      isWhatsApp: true
     },
     {
       icon: "fas fa-clock",
       title: "Business Hours",
       details: "Mon - Fri: 9AM - 6PM",
       gradient: "from-violet-600 to-violet-700"
-    },
-    {
-  icon: "fab fa-whatsapp",
-  title: "WhatsApp",
-  details: "+1 (900) 317-9421",
-  gradient: "from-green-600 to-green-700",
-  isWhatsApp: true
-   },
+    }
   ];
 
   return (
@@ -139,27 +139,22 @@ export default function ContactSection() {
                   <div>
                     <div className="font-semibold">{info.title}</div>
                     {info.isWhatsApp ? (
-  <a 
-    href={`https://wa.me/19003179421`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-slate-600 hover:text-green-600 transition-colors"
-  >
-    {info.details}
-  </a>
-) : (
-  <div className="text-slate-600">{info.details}</div>
-)}
-                    <div className="text-slate-600">{info.details}</div>
+                      <a 
+                        href={`https://wa.me/19003179421`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-600 hover:text-green-600 transition-colors"
+                      >
+                        {info.details}
+                      </a>
+                    ) : (
+                      <div className="text-slate-600">{info.details}</div>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
-
-
           </div>
-
-          
           
           {/* Contact Form */}
           <div className="bg-slate-50 rounded-xl p-8">
@@ -189,7 +184,7 @@ export default function ContactSection() {
                     name="lastName" 
                     value={formData.lastName}
                     onChange={handleInputChange}
-                     required 
+                    required 
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
                   />
                 </div>
