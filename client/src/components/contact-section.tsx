@@ -92,7 +92,7 @@ export default function ContactSection() {
     {
       icon: "fas fa-phone",
       title: "Call Us",
-      details: "+1 (900) 317-9421",
+      details: "+919003179421",
       gradient: "from-emerald-600 to-emerald-700"
     },
     {
